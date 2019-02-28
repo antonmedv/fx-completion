@@ -1,0 +1,21 @@
+{
+  "name": "fx-completion",
+  "version": "1.0.0",
+  "description": "fx completion for bash",
+  "bin": {
+    "fx-completion": "index.js"
+  },
+  "main": "index.js",
+  "repository": "antonmedv/fx-completion",
+  "homepage": "https://github.com/antonmedv/fx-completion",
+  "keywords": [
+    "fx",
+    "completion",
+    "bash"
+  ],
+  "author": "Anton Medvedev <anton@medv.io>",
+  "license": "MIT",
+  "dependencies": {
+    "fx": "^12.0.2"
+  }
+}
