@@ -1,6 +1,6 @@
 # fx-completion
 
-Bash completion for fx
+Bash completion for [fx](https://github.com/antonmedv/fx)
 
 ## Install
 
