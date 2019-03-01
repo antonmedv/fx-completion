@@ -2,7 +2,7 @@
 
 Bash completion for [fx](https://github.com/antonmedv/fx)
 
-<p align="center"><img src="https://user-images.githubusercontent.com/141232/53619009-4ffb4c80-3c20-11e9-9e58-6ed729b945e0.gif" width="584" alt=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/141232/53619009-4ffb4c80-3c20-11e9-9e58-6ed729b945e0.gif" width="490" alt=""></p>
 
 ## Install
 
@@ -25,9 +25,9 @@ $ fx data.json <Tab>
 
 ## TODO
 
-[x] Bash
-[ ] Zsh
-[ ] Fish
+- [x] Bash
+- [ ] Zsh
+- [ ] Fish
 
 ## License
 
