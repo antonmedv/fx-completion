@@ -7,7 +7,7 @@ const reduce = require('fx/reduce')
 
 void function main() {
   if (process.argv.includes('--bash')) {
-    process.stdout.write(fs.readFileSync('./complete.sh'))
+    process.stdout.write(fs.readFileSync(path.join(__dirname, './complete.sh')))
     return
   }
 
