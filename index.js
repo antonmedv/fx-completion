@@ -15,7 +15,7 @@ void function main() {
     [
       ...globals(),
       ...fields(),
-    ].join(' ')
+    ].join('\n')
   )
 }()
 
@@ -66,26 +66,12 @@ function fields() {
       const json = JSON.parse(input)
       args = args.slice(1) // Remove file name
 
-      let startPath = ''
       if (args[compIndex]) {
-        startPath = args[compIndex] = args[compIndex].replace(/\.[^.]*?\.?$/, '')
-        if (startPath === '') {
-          args = args.slice(0, compIndex) // Remove current word
-        }
+        args = args.slice(0, compIndex) // Remove current word
       }
+
       const output = args.reduce(reduce, json)
-
-      const words = []
-      let i = 0
-      for (let word of bfs(output, startPath)) {
-        words.push(word)
-        i++
-        if (i >= 99) {
-          break
-        }
-      }
-      return words
-
+      return [...paths(output)]
     } catch (e) {
       // Ignore
     }
@@ -93,37 +79,36 @@ function fields() {
   return []
 }
 
-function* bfs(json, startPath) {
-  const queue = [[json, startPath]]
+function* paths(json) {
+  const queue = []
 
-  while (queue.length > 0) {
-    const [v, path] = queue.shift()
-
-    if (!v) {
-      continue
-    }
-
-    if (Array.isArray(v)) {
-      let i = 0
-      for (let item of v) {
-        const p = (path || 'this') + '[' + (i++) + ']'
-        if (Array.isArray(item) || isObject(item)) {
-          yield p
-        }
-        queue.push([item, p])
+  if (Array.isArray(json)) {
+    let i = 0
+    for (let item of json) {
+      const path = 'this[' + (i++) + ']'
+      if (Array.isArray(item) || isObject(item)) {
+        yield path
       }
     }
-
-    if (isObject(v)) {
-      for (let [key, value] of Object.entries(v)) {
-        let p
-        if (/^\w+$/.test(key)) {
-          p = path + '.' + key
-        } else {
-          p = path + `["${key}"]`
+  } else {
+    if (isObject(json)) {
+      for (let [key, value] of Object.entries(json)) {
+        const path = /^\w+$/.test(key) ? `.${key}` : `this["${key}"]`
+        yield path
+        if (Array.isArray(value)) {
+          queue.push([value, path])
         }
+      }
+    }
+  }
+
+  while (queue.length > 0) {
+    const [value, path] = queue.shift()
+    let i = 0
+    for (let item of value) {
+      const p = path + '[' + (i++) + ']'
+      if (Array.isArray(item) || isObject(item)) {
         yield p
-        queue.push([value, p])
       }
     }
   }
