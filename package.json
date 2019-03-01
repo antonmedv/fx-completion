@@ -1,6 +1,6 @@
 {
   "name": "fx-completion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "fx completion for bash",
   "bin": {
     "fx-completion": "index.js"

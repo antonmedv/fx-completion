@@ -87,7 +87,7 @@ function fields() {
       return words
 
     } catch (e) {
-      return [e]
+      // Ignore
     }
   }
   return []
