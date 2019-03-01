@@ -5,7 +5,10 @@
   "bin": {
     "fx-completion": "index.js"
   },
-  "main": "index.js",
+  "files": [
+    "complete.sh",
+    "index.js"
+  ],
   "repository": "antonmedv/fx-completion",
   "homepage": "https://github.com/antonmedv/fx-completion",
   "keywords": [
