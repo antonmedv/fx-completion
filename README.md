@@ -2,7 +2,7 @@
 
 Bash completion for [fx](https://github.com/antonmedv/fx)
 
-<p align="center"><img src="https://user-images.githubusercontent.com/141232/53610000-f5e89000-3bfb-11e9-9fa7-b457ac921911.gif" width="440" alt=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/141232/53619009-4ffb4c80-3c20-11e9-9e58-6ed729b945e0.gif" width="584" alt=""></p>
 
 ## Install
 
@@ -22,6 +22,12 @@ Fields of JSON file provided only if _fx_ used with file as first argument.
 ```bash
 $ fx data.json <Tab>
 ```
+
+## TODO
+
+[x] Bash
+[ ] Zsh
+[ ] Fish
 
 ## License
 
