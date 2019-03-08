@@ -71,7 +71,15 @@ function fields() {
       }
 
       const output = args.reduce(reduce, json)
-      return [...paths(output)]
+      const fields = []
+      let i = 0
+      for (let p of paths(output)) {
+        fields.push(p)
+        if (i++ > 1000) {
+          break
+        }
+      }
+      return fields
     } catch (e) {
       // Ignore
     }
